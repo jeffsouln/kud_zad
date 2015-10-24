@@ -1,6 +1,6 @@
-# 1 vraca `user_id` i broj pojavljivanja po zadatom kriterijumu koji je i FOREIGN KEY pa se moze koristiti za dobavljanje podataka iz tabele `user
+# 1 vraca user_id po zadatom kriterijumu koji je i FOREIGN KEY pa se moze koristiti za dobavljanje podataka iz tabele `user
 
-SELECT `user_id`, MAX(counted) FROM (   
+SELECT `user_id` FROM (   
     SELECT `user_id`, COUNT(`user_id`) AS counted FROM (
         SELECT * FROM `login_history` 
         WHERE `login_time` BETWEEN ('2012-09-01 00:00:00') AND ('2012-09-30 23:59:59') 
@@ -8,13 +8,18 @@ SELECT `user_id`, MAX(counted) FROM (
         AND `login_action` = "logout") AS spec_logouts 
         GROUP BY `user_id`
         ORDER BY counted DESC) as coun_spec_logouts
+LIMIT 1
            
-# 2 vraca `user_id` i broj pojavljivanja u svakom mesecu po zadatom kriterijumu koji je i FOREIGN KEY pa se moze koristiti za dobavljanje podataka iz tabele `user`
+# 2 vraca user_id koji ima najveci broj pojavljivanja u svakom mesecu po zadatom kriterijumu koji je i FOREIGN KEY pa se moze koristiti za dobavljanje podataka iz tabele `user`
 
-SELECT date, `user_id`, max(counted) from (
+SELECT date, `user_id` from (
     SELECT `user_id`, COUNT(`user_id`) AS counted, DATE_FORMAT(`login_time`, '%Y-%m') as date FROM (
         SELECT * FROM `login_history` 
         WHERE `login_action` = "logout") AS logouts
     GROUP BY `user_id`, date 
     ORDER BY date, counted DESC) as sub 
 GROUP BY date
+
+# 3 vraca ukupan broj pojavljivanja svakog user_id bez obzira na tip akcije
+
+SELECT `user_id`, count(*) FROM `login_history` GROUP BY `user_id`
