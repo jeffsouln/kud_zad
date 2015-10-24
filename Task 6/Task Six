@@ -1,0 +1,8 @@
+Napraviti newsletter skriptu.
+
+Potrebno je sledece.
+1. Fajl index.html u sebi sadrzi formu sa poljem za unos email-a, poljem za unos sadrzaja email-a i dugmetom save.
+2. Pritiskom na dugme save gadja se fajl add.php uz pomoc ajax-a i u fajlu add se u bazu upisuju podaci te forme.
+3. Pozivom fajla send.php salju se do sada ne poslati fajlovi.
+
+

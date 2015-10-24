@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Task Six</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="public/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+        <script src="public/js/jquery.js" type="text/javascript"></script>
+        <script src="public/js/custom.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="site_content">
+            <h1>NewsLetter</h1>
+            <div id="form_wraper">
+                <form id="news_letter_form" method="post" action="add.php">
+                    <label>Email address:</label><br><input type="email" name="tb_address" id="address" required><br>
+                    <label>Email content:</label><br><textarea name="ta_content" id="content"></textarea><br>
+                    <input id="btn_save" type="submit" value="SAVE" name="btn_save">
+                </form>
+            </div>
+            <div id="message_container">
+                <h3 id="message"></h3>
+            </div>
+            <div>
+                <button id="btn_send_all" type="button" name="btn_send">SEND all unsent</button>
+            </div>
+        </div>
+    <script>                     
+            $('#news_letter_form').submit(function(e){      //AJAX salje adresu i sadrzaj maila na add.php POST metodom
+                var data = $(this).serializeArray();
+                var URL = $(this).attr('action');
+                $.ajax({
+                        url : URL,
+                        type: "POST",
+                        data : data,
+                        success: function(){
+                            $('#news_letter_form')[0].reset();     //resetuje formu
+                            $('#message').text('Your email is saved!');
+                        }
+                });
+            e.preventDefault();  //sprecava odlazak na add.php
+            });
+
+            $('#btn_send_all').click(function(){
+                $.ajax({
+                    url: 'send.php',
+                    success: function(response){
+                        $('#message').text('All Your emails are sent!');
+                    }
+                });
+            });
+    </script>
+    </body>
+</html>

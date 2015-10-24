@@ -1,0 +1,35 @@
+html
+{ height: 100%;}
+
+*
+*
+{ margin: 0;
+  padding: 0;}
+
+body
+{ font: normal .80em arial, sans-serif;
+  color: #111;
+  background: transparent url(../images/1.png) repeat;}
+
+#site_content
+{ margin-left: auto; 
+  margin-right: auto;
+  width: 960px;
+}
+#form_wraper
+{
+	margin: 20px 20px 40px 20px;
+	padding: 10px;
+	height: 400px;
+}
+
+#message_container
+{
+  height:20px;
+  color: red;
+}
+
+textarea {
+  width: 800px;
+  height:350px;
+}
