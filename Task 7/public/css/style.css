@@ -1,0 +1,150 @@
+html
+{ height: 100%;}
+
+*
+*
+{ margin: 0;
+  padding: 0;}
+
+body
+{ font: normal 0.9em arial, sans-serif;
+  color: #111;
+  background: transparent url(../images/1.png) repeat;}
+
+#wrapper {
+  width: 1000px;
+  margin: 0 auto;
+  border-bottom: 0px;
+  float: none;
+}
+
+p {
+  display: block;
+  padding-left: 20px; 
+  height: 60px;
+  width: 350px;
+  line-height: 60px;
+  float: left;
+}
+
+p.notes {
+
+}
+
+p.range {
+  width: auto;
+  padding-right: 4px;
+}
+
+p.weight {
+  width: 307px;
+}
+
+form {
+  margin: 50px 50px 15px 50px;
+  background: rgb(248,245,245);
+  width: 900px;
+  overflow: hidden;
+}
+
+input {
+  display: block;
+  float: left;
+  height: 34px;
+  margin: 12px 4px 12px 19px;
+  border: 1px solid rgb(220,220,220);
+}
+
+ input.price {
+  width: 120px;
+
+}
+
+input.url {
+  width: 120px;
+  margin: 14px 200px 14px 19px;
+}
+
+input.range {
+  width: 70px;
+  margin: 14px 4px 14px 4px;
+}
+
+input.range_price {
+  width: 120px;
+  margin: 14px 4px 14px 115px;
+}
+
+textarea {
+  height: 55px;
+  width: 270px;
+  display: block;
+  float: left;
+  margin: 12px 4px 12px 19px;
+  border: 1px solid rgb(220,220,220);
+  resize: none;
+}
+
+p.link {
+  color: rgb(138,157,231);
+  width: 120px;
+  height: 30px;
+  padding: 15px 15px 15px 15px;
+  line-height: 30px;
+  text-align: center;
+  float: left;
+}
+
+.dollar_price {
+  width: 5px;
+  padding-left: 5px;
+}
+
+.dollar_range {
+  width: 5px;
+  padding-left: 5px;
+}
+
+div {
+  width: 900px;
+  float: left;
+  border-bottom: 1px solid rgb(220,220,220);
+}
+
+div.range:first-of-type {
+  border-top: 1px solid rgb(220,220,220);
+}
+
+div.range:last-of-type {
+  border-bottom: none;
+}
+
+div.range {
+  background: rgb(244,244,244);
+}
+
+div.options {
+  border-top: 1px solid rgb(220,220,220);
+  background: rgb(244,244,244);
+}
+
+.btn_options {
+  float:right;
+  border: none;
+  background: rgb(150,212,238);
+  width: 140px;
+  height: 30px;
+  margin: 15px 20px 15px;
+}
+
+p.add_delete {
+  width: auto;
+  float: right;
+}
+
+#submit {
+  height: 53px;
+  width: 191px;
+  margin-left:  760px;
+  border: 1px solid rgb(216,216,216);
+}
