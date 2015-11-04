@@ -1,0 +1,4 @@
+Zaključci iz analize zadatka:
+		
+			ne postoji dugme za dodavanje "delivery method-a" kao ni dugme za brisanje "delivery method-e" dakle svaka kompanija ima na raspoljaganju 5 predefinisanih metoda 
+		

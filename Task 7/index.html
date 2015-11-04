@@ -7,8 +7,8 @@
         <script src="public/js/jquery.js" type="text/javascript"></script>
     </head>
     <body>
-        <div id="wrapper">
-            <form id="form" action="process.php" method="post">
+        <div id="wrapper">                                                                          
+            <form id="form" action="process.php" method="post">                         
                 <div id="row_0"></div>
                 <div id="row_1"></div>      
                 <div id="row_2"></div>      
@@ -21,6 +21,7 @@
     <script type="text/javascript">
 
     	$(document).ready(function(){
+            //nakon ucitavanja strane ajax poziva model.php, i iscrtava formu
             $.ajax({                                                                                                        
                 url: 'model.php',
                 success: function(response){
@@ -39,7 +40,8 @@
                     }
                 }
             });
-        
+            
+            //klikom na link "show_ranges", ajax poziva get_ranges.php, salje id delivery methode i u ovkiru njenog diva renderuje dovove sa podatcima "ranges"
             $('form').on('click', 'a.show_ranges', function(){
                 $('div.range').remove();
                 var id = $(this).parent().attr('class').split(' ')[0];
@@ -54,7 +56,8 @@
                     }
                 });
             });
-
+            
+            //klikom na link "btn_options", ajax poziva get_options.php, salje id delivery methode i u ovkiru njenog diva renderuje dovove sa podatcima "options"
             $('form').on('click', '.btn_options', function(){
                 var id = $(this).parent().attr('class').split(' ')[0];
                 $(".options", $(this).parent()).remove();
@@ -69,7 +72,8 @@
                 });
 
             });
-
+            
+            //klikom na link "delete_range", ajax poziva delete_range.php, salje id delivery methode uklanja rekord iz baze, zatim brise div sa interfejsa
             $('form').on('click', 'a.delete_range', function(){
                 var div = $(this).parent().parent();
                 var id = div.attr('class').split(' ')[0];
@@ -82,6 +86,7 @@
                 $('.btn_options').remove();
             });
 
+            //klikom na link "add_new_range", iscrtava se u oviru diva novi sa klasom "range" i inputima za unos novog range u bazu
             $('form').on('click', 'a.add_new_range', function(){
                 var div = $(this).parent().parent();
                 var id = div.attr('class').split(' ')[0];
@@ -89,6 +94,7 @@
                 $(this).parent().after('<div class="range"><p class="range">From</p><input class="range" name="del_meth['+id+'][range][new_range_'+token+'][from] type="number" value=""><p class="dollar_range">$</p><p class="range">to</p><input class="range" name="del_meth['+id+'][range][new_range_'+token+'][to] type="number" value=""><p class="dollar_range">$</p><input class="range_price" name="del_meth['+id+'][range][new_range_'+token+'][price] type="number" value=""><p class="dollar_range">$</p><a class="delete_range" href="#" ><p class="add_delete link">Delete</p></a><a class="add_new_range"  href="#" ><p class="add_delete link">Add new</p></a></div>');
             });
 
+            //na ulazak misa iznad diva sa klasom "no_ranges" iscrtava se link add_ranges i dugme btn_options, izlaskom misa iz polja diva link i dugme nestaju 
             $('form').on('mouseenter', '.no_ranges', function(){
                 $('.dollar_price', this).after('<a class="add_ranges"  href="#" ><p class="link">Add ranges</p></a><input class="btn_options" type="button" value="Show options">');
             }).on('mouseleave', '.no_ranges', function(){
@@ -96,12 +102,14 @@
                 $('.btn_options').remove();
             });
 
+            //na ulazak misa iznad diva sa klasom "has_ranges" iscrtava se dugme btn_options, izlaskom misa iz polja diva dugme nestaje 
             $('form').on('mouseenter', '.has_ranges', function(){
                 $('.show_ranges',this).after('<input class="btn_options" type="button" value="Show options">');
             }).on('mouseleave', '.has_ranges', function(){
                 $('.btn_options').remove();
             });
 
+            //klikom na link "add_ranges" iscrtava se u oviru diva novi sa klasom "range" i inputima za unos novog range u bazu i menjaju se klase roditeljskog diva u "has_ranges"
             $('form').on('click', '.add_ranges', function(){
                 $('.price', $(this).parent()).remove();
                 $('.dollar_price', $(this).parent()).remove();
@@ -113,6 +121,7 @@
                 $(this).remove();
             });
             
+            //submit trigeruje ajax koji salje podatke za unos u bazu
             $("#form").submit(function(e){
                 var data = $(this).serializeArray();
                 $.ajax({
@@ -120,7 +129,7 @@
                     type: "POST",
                     data: data,
                     success: function(){
-                        $('#wrapper').append('<div>Form is successfully updated!</div>');
+                        $('#wrapper').append('<div id="result">Form is successfully updated!</div>');
                     }
                 });
             e.preventDefault();  //sprecava odlazak na process.php

@@ -1,6 +1,6 @@
 <?php
 require_once "includes/DB.php";
-require_once "Form.class.php";
+require_once "includes/Form.class.php";
 
 if (isset($_POST)) {
 	$form = new Form;
@@ -8,6 +8,8 @@ if (isset($_POST)) {
 foreach ($_POST as $delivery_method) {
 	foreach ($delivery_method as $delivery_method_id => $value) {
 
+	//provara koja polja sadrzi promenljiva _POST i u zavisnosti pozivaju se metode instance klase form
+	//validacija polja pre poziva metoda
 		if (array_key_exists('fixed_price', $value) && (is_numeric($value['fixed_price']) || is_null($value['fixed_price']))) {
 			$form->update_fixed_price($delivery_method_id,$value['fixed_price']);
 		}
