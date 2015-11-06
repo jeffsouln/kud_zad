@@ -1,0 +1,3 @@
+ubaciti JSON file u bazu (ostvareno uz pomoć biblioteke adamwulf/json-to-mysql)
+napraviti REST servis samo za dopremanje podataka iz baze, koristiti GET metodu
+napraviti event handlere za buttone, u zadatku nije naznaeno da treba razradjivati funkcije delete i reply, u daljem razvoju moguce koriscenje REST sevisa metod DELETe 

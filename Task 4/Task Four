@@ -1,0 +1,15 @@
+ 
+-U file-u public/js/data.json nalazi se JSON objekat koji sadrzi primljene poruke korisnika.
+
+Za Back-end
+
+Treba napraviti back-end koji funkcionise kao restful api, i generise isti array kao data.json.
+
+Za Front-end
+
+-Potrebno je uraditi sledece:
+	a) Ispisati sve poruke na stranicu. Ne morate se previse baviti CSS-om, ali pozeljno je da ispisane poruke budu pregledne i lepo formatirane. Primer kako bi to otprilike trebalo da izgleda imate u file-u: "inbox.png".
+	b) Svaka ispisana poruka bi trebala da uz sebe ima 'Delete' dugme, koje ce na klik pozvati funkciju `delete_message' i proslediti joj odgovarajuci id poruke.
+	c) Svaka ispisana poruka bi trebala da uz sebe ima 'Reply' dugme, koje ce na klik pozvati funkciju `reply_message' i proslediti joj odgovarajuci id poruke i id posiljaoca.
+
+Kostur vam je vec dat, samo treba dalje razvijati...
