@@ -6,5 +6,10 @@ require_once "includes/Form.class.php";
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 	$form = new Form;
 	$id = $_GET['id'];
-	$form->delete_range($id);
+	if (isset($_GET['del_met_id'])) {
+		$del_met_id = $_GET['del_met_id'];
+		$form->delete_last_range($id,$del_met_id);
+	} else {
+		$form->delete_range($id);
+	}
 }

@@ -104,4 +104,14 @@ class Form {
 		$st->bindParam(':id', $id);
 		$st->execute();
 	}
+///brise poslednji range i vraca delivery model na fixed_price	
+	public function delete_last_range($id,$del_met_id){
+		$db = DB::getInstance();
+		$st = $db->prepare("DELETE FROM `ranges` WHERE `range_id`=:id");
+		$st->bindParam(':id', $id);
+		$st->execute();
+		$st = $db->prepare("UPDATE `delivery_methods` SET `range_set`= '0' WHERE `delivery_method_id` = :id");
+		$st->bindParam(':id', $del_met_id);
+		$st->execute();
+	}
 }

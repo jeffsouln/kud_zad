@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2015 at 08:20 PM
+-- Generation Time: Nov 06, 2015 at 06:57 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -39,10 +39,10 @@ CREATE TABLE IF NOT EXISTS `delivery_methods` (
 --
 
 INSERT INTO `delivery_methods` (`delivery_method_id`, `company`, `fixed_price`, `range_set`) VALUES
-(1, 1, NULL, 1),
-(2, 1, '33.00', 0),
-(3, 1, '45.00', 1),
-(4, 1, '6.00', 0),
+(1, 1, '55.00', 0),
+(2, 1, '3.00', 1),
+(3, 1, '45.00', 0),
+(4, 1, '0.00', 1),
 (5, 1, '1000.00', 0);
 
 -- --------------------------------------------------------
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `options` (
 INSERT INTO `options` (`delivery_url`, `w_from`, `w_to`, `notes`, `delivery_method`) VALUES
 ('http://www.nesto.com', 10, 100, 'some text', 3),
 ('http://www.pera.com', 10, 100, 'na na na naaaaa', 0),
-('http://www.oleole.com', 0, 5, 'deki je car ', 2),
+('http://www.oleole.com', 0, 8, 'deki', 2),
 ('http://www.idemoooo.com', 1, 2, 'http://www.pera.comhttp://www.pera.comhttp://www.pera.comhttp://www.pera.comhttp://www.pera.comhttp://www.pera.comhttp://www.pera.comhttp://www.pera.comhttp://www.pera.comhttp://www.pera.com', 4),
 ('http://www.peti.com', 3, 4444, 'loerm loerm loerm loerm loerm loerm loerm loerm loerm loerm loerm loerm loerm loerm loerm loerm loerm loerm loerm loerm loerm loerm loerm loerm loerm loerm loerm loerm ', 5),
 ('http://www.duki.com', 1, 444, 'null', 1);
@@ -84,17 +84,17 @@ CREATE TABLE IF NOT EXISTS `ranges` (
   `to` smallint(5) unsigned NOT NULL,
   `price` decimal(12,2) unsigned NOT NULL,
   PRIMARY KEY (`range_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=33 ;
 
 --
 -- Dumping data for table `ranges`
 --
 
 INSERT INTO `ranges` (`range_id`, `delivery_method`, `from`, `to`, `price`) VALUES
-(4, 3, 1, 5, '5.00'),
-(8, 1, 2, 33, '333.00'),
-(9, 1, 333, 4444, '5544.00'),
-(10, 3, 5, 5, '3333.00');
+(29, 2, 4, 4, '44.00'),
+(30, 4, 43, 34, '4.00'),
+(31, 4, 44, 55, '5.00'),
+(32, 4, 55, 55, '5.00');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
