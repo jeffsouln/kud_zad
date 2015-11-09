@@ -1,0 +1,2 @@
+problem: pozivanje singleton closure
+akcenat, closuer sa parametrima $container->get("db");
